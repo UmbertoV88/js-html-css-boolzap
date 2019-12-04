@@ -17,6 +17,9 @@ i {
     color: #818B90;
 
 }
+.active {
+    display: block;
+}
 
 .clearfix::after {
     clear: both;
@@ -129,8 +132,7 @@ img {
 }
 
 
-.message {
-    background-color: lightblue;
+.received-message {
     width: 100%;
     height: calc(100% - 170px);
     overflow-y: scroll;
@@ -222,6 +224,26 @@ img {
     float: right;
 }
 
+.fa-paper-plane{
+    display: none;
+}
+
 .left-write-message-icon{
     float: left;
+}
+
+.message {
+    padding: 20px;
+    background-color: white;
+    border-radius: 50px;
+    float: left;
+    width: 250px;
+    margin-bottom: 20px;
+    clear: both;
+    display: none;
+}
+
+.send {
+    background-color: #00BFA5;
+    float: right;
 }
