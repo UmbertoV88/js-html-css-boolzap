@@ -24,8 +24,9 @@ $(document).ready(function() {
         $(".fa-paper-plane").addClass("disactive")
 
     })
-
-    
+    $(".search").keyup(function(){
+        carcaNomeChat();
+    })
 
 
 });
@@ -38,6 +39,28 @@ function invioMessaggio() {
         spazioCasella.children(".testo-messaggio").text(mexText);
         $(".read-message").append(spazioCasella);
         $(".new-message-inputs").val('');
-
+        setTimeout(rispostaComputer,1000);
     };
 };
+
+function carcaNomeChat(){
+    var cercaNome = $(".search").val();
+    if(cercaNome.length !== 0) {
+        $(".contact").each(function(){
+            var nome = $(this).find('.name-contact').text();
+            if (nome.toLowerCase().includes(cercaNome.toLowerCase())){
+                $(this).show();
+            }else{
+                $(this).hide();
+            };
+        });
+    }else{
+        $(".contact").show();
+    };
+};
+function rispostaComputer() {
+    var messaggioComputer = $('.received').clone();
+    messaggioComputer.children('.testo-messaggio').text('Ciao');
+    messaggioComputer.addClass('active');
+    $('.read-message').append(messaggioComputer);
+}
