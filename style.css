@@ -20,6 +20,9 @@ i {
 .active {
     display: block;
 }
+.disactive {
+    display: none;
+}
 
 .clearfix::after {
     clear: both;
@@ -222,10 +225,11 @@ img {
 	/* font-size: 25px; */
 	color: #6B7376;
     float: right;
+    cursor: pointer;
 }
 
 .fa-paper-plane{
-    display: none;
+    
 }
 
 .left-write-message-icon{
@@ -237,13 +241,24 @@ img {
     background-color: white;
     border-radius: 50px;
     float: left;
-    width: 250px;
+    min-width: 150px;
+    max-width: 250px;
     margin-bottom: 20px;
     clear: both;
-    display: none;
+    position: relative;
 }
 
 .send {
     background-color: #00BFA5;
     float: right;
+}
+
+/* .template {
+    display: none;
+} */
+
+.orario-messaggio {
+    position: absolute;
+    right: 30px;
+    font-size: 10px;
 }
