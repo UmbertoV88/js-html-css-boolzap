@@ -3,33 +3,40 @@ $(document).ready(function() {
 
 
     $(".right-write-message-icon").click(function(){
-
         invioMessaggio();
-
+        setTimeout(rispostaComputer,1000);
     });
 
     $(".new-message-inputs").keypress(function(event){
         if(event.which == 13) {
             invioMessaggio();
+            setTimeout(rispostaComputer,1000);
         };
     });
 
     $(".new-message-inputs").focus(function (){
         $(".fa-microphone").addClass("disactive")
         $(".fa-paper-plane").removeClass("disactive")
+    });
 
-    })
     $(".new-message-inputs").blur(function (){
         $(".fa-microphone").removeClass("disactive")
         $(".fa-paper-plane").addClass("disactive")
 
-    })
+    });
+
     $(".search").keyup(function(){
         carcaNomeChat();
-    })
+    });
 
 
 });
+
+
+
+// ------------------------------------------
+// -----------------FUNZIONI-----------------
+// ------------------------------------------
 
 function invioMessaggio() {
     var mexText = $(".new-message-inputs").val();
@@ -39,7 +46,6 @@ function invioMessaggio() {
         spazioCasella.children(".testo-messaggio").text(mexText);
         $(".read-message").append(spazioCasella);
         $(".new-message-inputs").val('');
-        setTimeout(rispostaComputer,1000);
     };
 };
 
@@ -59,8 +65,9 @@ function carcaNomeChat(){
     };
 };
 function rispostaComputer() {
-    var messaggioComputer = $('.received').clone();
+    var messaggioComputer = $('.received.pippo').clone();
     messaggioComputer.children('.testo-messaggio').text('Ciao');
-    messaggioComputer.addClass('active');
+    messaggioComputer.removeClass("pippo");
+    // messaggioComputer.addClass('active');
     $('.read-message').append(messaggioComputer);
 }
